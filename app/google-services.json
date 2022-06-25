@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "692391521328",
+    "project_id": "viola-pantaneira",
+    "storage_bucket": "viola-pantaneira.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692391521328:android:819e0eefc9ed85a77b51f5",
+        "android_client_info": {
+          "package_name": "com.violapantaneira.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "692391521328-mbdoa86uu5ih31rl102i3hu3n45vc2qv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.violapantaneira.app",
+            "certificate_hash": "49ab7f3cdf1a64af3700b2eb2a834871ebd62bbe"
+          }
+        },
+        {
+          "client_id": "692391521328-r1jqtj1ha2su2eg36cmmrmkcbffpgmo7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuFc5z-GaqhNhMI3t1W8U6-2yjpuw0neI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "692391521328-r1jqtj1ha2su2eg36cmmrmkcbffpgmo7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

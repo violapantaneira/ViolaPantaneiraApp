@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">ViolaPantaneira</string>
+    <string name="the_email_cant_be_blank">The email can\'t be blank</string>
+    <string name="thats_not_a_valid_email">That\'s not a valid email</string>
+    <string name="the_name_cant_be_blank">The name can\'t be blank</string>
+    <string name="the_password_cant_be_blank">The password can\'t be blank</string>
+    <string name="the_password_needs_to_contain_letter_and_digit">The password needs to contain at least one letter and digit</string>
+    <string name="dont_have_an_account">Don\'t have an account? Click Here</string>
+    <string name="login">Login</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="already_have_an_account">Already have an account? Click here</string>
+    <string name="register">Register</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="something_wrong_was_happened">Something wrong was happened</string>
+    <string name="dynamic">%1$s</string>
+</resources>
