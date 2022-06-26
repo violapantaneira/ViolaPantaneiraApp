@@ -15,4 +15,5 @@ object MainRoutes {
     const val HOME: Route = "home"
     const val SEARCH: Route = "search"
     const val PROFILE: Route = "profile"
+    const val ROLL : Route = "roll"
 }
