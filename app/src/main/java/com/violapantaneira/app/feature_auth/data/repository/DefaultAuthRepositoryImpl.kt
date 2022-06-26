@@ -6,8 +6,7 @@ import com.violapantaneira.app.feature_auth.util.AuthResponse
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
-class DefaultAuthRepositoryImpl @Inject constructor(
+class DefaultAuthRepositoryImpl(
     private val auth: FirebaseAuth
 ) : DefaultAuthRepository {
 

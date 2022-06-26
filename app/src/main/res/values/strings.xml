@@ -15,4 +15,8 @@
     <string name="email">Email</string>
     <string name="something_wrong_was_happened">Something wrong was happened</string>
     <string name="dynamic">%1$s</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="profile">Profile</string>
+    <string name="roll">Roll</string>
 </resources>

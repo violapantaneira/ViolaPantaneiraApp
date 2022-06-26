@@ -7,7 +7,7 @@ import com.violapantaneira.app.domain.model.User
 import com.violapantaneira.app.domain.repository.AuthRepository
 import javax.inject.Inject
 
-class AuthRepositoryImpl @Inject constructor(
+class AuthRepositoryImpl(
     private val auth: FirebaseAuth
 ) : AuthRepository {
 
