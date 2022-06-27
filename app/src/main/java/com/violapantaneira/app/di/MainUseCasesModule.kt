@@ -1,7 +1,9 @@
 package com.violapantaneira.app.di
 
 import com.violapantaneira.app.domain.repository.AuthRepository
+import com.violapantaneira.app.domain.repository.CalendarRepository
 import com.violapantaneira.app.domain.repository.DatabaseRepository
+import com.violapantaneira.app.feature_main.use_case.GetRollUseCase
 import com.violapantaneira.app.feature_main.use_case.IMainUseCases
 import com.violapantaneira.app.feature_main.use_case.IsAdminUseCase
 import com.violapantaneira.app.feature_main.use_case.MainUseCases
@@ -25,7 +27,19 @@ object MainUseCasesModule {
 
     @Provides
     @Singleton
+    fun provideGetRollUseCase(
+        database: DatabaseRepository,
+        calendar: CalendarRepository
+    ): IMainUseCases.GetRoll =
+        GetRollUseCase(database, calendar)
+
+    @Provides
+    @Singleton
     fun provideMainUseCases(
-        isAdmin: IMainUseCases.IsAdmin
-    ): MainUseCases = MainUseCases(isAdmin)
+        isAdmin: IMainUseCases.IsAdmin,
+        getRoll: IMainUseCases.GetRoll
+    ): MainUseCases = MainUseCases(
+        isAdmin,
+        getRoll
+    )
 }

@@ -3,8 +3,10 @@ package com.violapantaneira.app.di
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.violapantaneira.app.data.repository.AuthRepositoryImpl
+import com.violapantaneira.app.data.repository.CalendarRepositoryImpl
 import com.violapantaneira.app.data.repository.DatabaseRepositoryImpl
 import com.violapantaneira.app.domain.repository.AuthRepository
+import com.violapantaneira.app.domain.repository.CalendarRepository
 import com.violapantaneira.app.domain.repository.DatabaseRepository
 import com.violapantaneira.app.feature_auth.data.repository.DefaultAuthRepositoryImpl
 import com.violapantaneira.app.feature_auth.domain.repository.DefaultAuthRepository
@@ -35,7 +37,13 @@ object RepositoryModule {
     @Provides
     @Singleton
     fun provideDatabaseRepository(
-        database: FirebaseFirestore
+        database: FirebaseFirestore,
+        calendar: CalendarRepository
     ): DatabaseRepository =
-        DatabaseRepositoryImpl(database)
+        DatabaseRepositoryImpl(database, calendar)
+
+    @Provides
+    @Singleton
+    fun provideCalendarRepository(): CalendarRepository =
+        CalendarRepositoryImpl()
 }

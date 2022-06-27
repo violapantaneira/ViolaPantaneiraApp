@@ -15,8 +15,8 @@ class IsAdminUseCase @Inject constructor(
         database.getAdmins { admins ->
             val user = auth.getUser()
 
-            val isAdmin = admins?.any { it.email == user?.email }
-            callback(isAdmin ?: false)
+            val isAdmin = admins.any { it.email == user?.email }
+            callback(isAdmin)
         }
     }
 }
