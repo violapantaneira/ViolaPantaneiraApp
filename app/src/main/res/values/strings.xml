@@ -13,14 +13,10 @@
     <string name="password">Password</string>
     <string name="email">Email</string>
     <string name="something_wrong_was_happened">Something wrong was happened</string>
-<<<<<<< Updated upstream
-    <string name="dynamic">%1$s</string>
-=======
     <string name="dynamic" translatable="false">%1$s</string>
     <string name="profile">Profile</string>
     <string name="roll">Roll</string>
     <string name="thats_not_a_valid_email">That\'s not a valid email</string>
     <string name="search">Search</string>
     <string name="home">Home</string>
->>>>>>> Stashed changes
 </resources>
