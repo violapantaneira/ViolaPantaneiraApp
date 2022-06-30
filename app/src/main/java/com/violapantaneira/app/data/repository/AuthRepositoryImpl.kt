@@ -5,7 +5,6 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.violapantaneira.app.domain.model.User
 import com.violapantaneira.app.domain.repository.AuthRepository
-import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
     private val auth: FirebaseAuth
@@ -33,4 +32,13 @@ class AuthRepositoryImpl @Inject constructor(
 
     private fun getCurrentUser(): FirebaseUser? =
         auth.currentUser
+
+    override fun signOut(callback: (Boolean) -> Unit) {
+        if (getUser() != null) {
+            auth.signOut()
+            callback(true)
+        } else {
+            callback(false)
+        }
+    }
 }

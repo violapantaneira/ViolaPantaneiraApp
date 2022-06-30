@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="the_name_cant_be_blank">O nome deve estar preenchido</string>
+    <string name="the_email_cant_be_blank">O e-mail deve estar preenchido</string>
+    <string name="the_password_cant_be_blank">A senha deve estar preenchida</string>
+    <string name="the_password_needs_to_contain_letter_and_digit">A senha deve estar preenchido</string>
+    <string name="dont_have_an_account">Não tem uma conta? Crie uma</string>
+    <string name="login">Entrar</string>
+    <string name="forgot_your_password">Esqueceu sua senha?</string>
+    <string name="already_have_an_account">Já tem uma conta? Entre</string>
+    <string name="register">Registrar</string>
+    <string name="name">Nome</string>
+    <string name="password">Senha</string>
+    <string name="email">E-mail</string>
+    <string name="something_wrong_was_happened">Aconteceu algo de errado</string>
+    <string name="home">Início</string>
+    <string name="search">Pesquisar</string>
+    <string name="profile">Perfil</string>
+    <string name="roll">Chamada</string>
+    <string name="thats_not_a_valid_email">Digite um e-mail válido</string>
+    <string name="sign_out">Sair</string>
+</resources>

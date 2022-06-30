@@ -44,7 +44,10 @@ class MainActivity : ComponentActivity() {
                 ) {
                     setupAuthNavGraph(navController)
 
-                    composable(route = MainRoutes()) { MainScreen() }
+                    composable(route = MainRoutes()) {
+                        MainScreen(onNavigate = { navController.navigate(it.route) }
+                        )
+                    }
                 }
             }
         }
