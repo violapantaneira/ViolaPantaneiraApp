@@ -62,7 +62,7 @@ class RegisterViewModel @Inject constructor(
                                         buttonEnabled = false
                                     )
                                 is AuthResponse.Successful -> sendUiEvent(
-                                    UiEvent.Navigate(
+                                    UiEvent.Replace(
                                         MainRoutes()
                                     )
                                 )
@@ -72,7 +72,7 @@ class RegisterViewModel @Inject constructor(
                 }
             }
             is RegisterEvent.LoginNavigateClick -> {
-                sendUiEvent(UiEvent.Navigate(AuthRoutes.LOGIN))
+                sendUiEvent(UiEvent.Replace(AuthRoutes.LOGIN))
             }
         }
 

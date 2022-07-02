@@ -19,4 +19,7 @@
     <string name="thats_not_a_valid_email">That\'s not a valid email</string>
     <string name="search">Search</string>
     <string name="home">Home</string>
+    <string name="intro" translatable="false">Intro</string>
+    <string name="tune">Tune</string>
+    <string name="rhythm">Rhythm</string>
 </resources>

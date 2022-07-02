@@ -5,15 +5,16 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.violapantaneira.app.domain.repository.AuthRepository
 import com.violapantaneira.app.feature_main.presentation.MainScreen
-import com.violapantaneira.app.navigation.AuthRoutes
-import com.violapantaneira.app.navigation.MainRoutes
-import com.violapantaneira.app.navigation.setupAuthNavGraph
+import com.violapantaneira.app.feature_song.presentation.SongScreen
+import com.violapantaneira.app.navigation.*
 import com.violapantaneira.app.ui.theme.ViolaPantaneiraTheme
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -44,7 +45,26 @@ class MainActivity : ComponentActivity() {
                 ) {
                     setupAuthNavGraph(navController)
 
-                    composable(route = MainRoutes()) { MainScreen() }
+                    composable(route = MainRoutes()) {
+                        MainScreen(
+                            onNavigate = { navController.navigate(it.route) },
+                            onReplace = { navController.replace(it.route) }
+                        )
+                    }
+
+                    composable(
+                        route = "${SongRoutes()}/{songId}",
+                        arguments = listOf(
+                            navArgument("songId") {
+                                type = NavType.StringType
+                            }
+                        )
+                    ) {
+                        SongScreen(
+                            onPop = { navController.popBackStack() },
+                            songId = it.arguments?.getString("songId")!!
+                        )
+                    }
                 }
             }
         }

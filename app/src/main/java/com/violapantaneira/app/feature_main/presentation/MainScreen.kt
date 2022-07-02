@@ -21,9 +21,12 @@ import com.violapantaneira.app.feature_main.presentation.components.BottomNavBar
 import com.violapantaneira.app.feature_main.presentation.util.BottomNavItem
 import com.violapantaneira.app.navigation.MainRoutes
 import com.violapantaneira.app.navigation.replace
+import com.violapantaneira.app.util.UiEvent
 
 @Composable
 fun MainScreen(
+    onNavigate: (UiEvent.Navigate) -> Unit,
+    onReplace: (UiEvent.Replace) -> Unit,
     viewModel: MainViewModel = hiltViewModel()
 ) {
     val navController = rememberNavController()
@@ -89,9 +92,17 @@ fun MainScreen(
         }
     ) { padding ->
         if (isAdmin)
-            AdminNavigation(navController)
+            AdminNavigation(
+                navController,
+                onNavigate,
+                onReplace
+            )
         else
-            UserNavigation(navController)
+            UserNavigation(
+                navController,
+                onNavigate,
+                onReplace
+            )
 
         Log.i("Padding", padding.toString())
     }

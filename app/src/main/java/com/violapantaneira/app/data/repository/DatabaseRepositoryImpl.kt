@@ -64,7 +64,11 @@ class DatabaseRepositoryImpl(
         database.collection("songs")
             .get()
             .addOnSuccessListener { result ->
-                val songs = result.map { it.toObject(Song::class.java) }
+                val songs = result.map { document ->
+                    document.toObject(Song::class.java).also {
+                        it.id = document.id
+                    }
+                }
                 callback(songs)
             }
     }

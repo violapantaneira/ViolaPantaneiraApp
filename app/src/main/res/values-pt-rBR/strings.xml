@@ -18,4 +18,6 @@
     <string name="profile">Perfil</string>
     <string name="roll">Chamada</string>
     <string name="thats_not_a_valid_email">Digite um e-mail válido</string>
+    <string name="tune">Afinação</string>
+    <string name="rhythm">Ritmo</string>
 </resources>

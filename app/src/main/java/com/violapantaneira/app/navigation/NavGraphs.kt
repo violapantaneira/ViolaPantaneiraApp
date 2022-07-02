@@ -13,10 +13,10 @@ fun NavGraphBuilder.setupAuthNavGraph(navController: NavController) {
         route = AuthRoutes()
     ) {
         composable(route = AuthRoutes.LOGIN) {
-            LoginScreen(onNavigate = { navController.replace(it.route) })
+            LoginScreen(onReplace = { navController.replace(it.route) })
         }
         composable(route = AuthRoutes.REGISTER) {
-            RegisterScreen(onNavigate = {
+            RegisterScreen(onReplace = {
                 navController.replace(
                     it.route
                 )

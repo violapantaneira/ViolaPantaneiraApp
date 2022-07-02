@@ -29,7 +29,7 @@ import com.violapantaneira.app.util.UiEvent
 
 @Composable
 fun LoginScreen(
-    onNavigate: (UiEvent.Navigate) -> Unit,
+    onReplace: (UiEvent.Replace) -> Unit,
     viewModel: LoginViewModel = hiltViewModel()
 ) {
     val keyboardIsOpen by keyboardIsOpen()
@@ -37,7 +37,7 @@ fun LoginScreen(
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                is UiEvent.Navigate -> onNavigate(event)
+                is UiEvent.Replace -> onReplace(event)
                 else -> Unit
             }
         }

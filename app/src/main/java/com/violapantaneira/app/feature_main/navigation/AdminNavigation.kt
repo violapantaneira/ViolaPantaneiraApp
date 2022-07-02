@@ -9,14 +9,19 @@ import com.violapantaneira.app.feature_main.presentation.profile.ProfileScreen
 import com.violapantaneira.app.feature_main.presentation.roll.RollScreen
 import com.violapantaneira.app.feature_main.presentation.search.SearchScreen
 import com.violapantaneira.app.navigation.MainRoutes
+import com.violapantaneira.app.util.UiEvent
 
 @Composable
-fun AdminNavigation(navController: NavHostController) {
+fun AdminNavigation(
+    navController: NavHostController,
+    onNavigate: (UiEvent.Navigate) -> Unit,
+    onReplace: (UiEvent.Replace) -> Unit
+) {
     NavHost(
         navController = navController,
         startDestination = MainRoutes.HOME
     ) {
-        composable(MainRoutes.HOME) { HomeScreen() }
+        composable(MainRoutes.HOME) { HomeScreen(onNavigate) }
         composable(MainRoutes.SEARCH) { SearchScreen() }
         composable(MainRoutes.ROLL) { RollScreen() }
         composable(MainRoutes.PROFILE) { ProfileScreen() }

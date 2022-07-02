@@ -29,3 +29,11 @@ fun TextStyle.bold(): TextStyle = copy(
 fun TextStyle.small(): TextStyle = copy(
     fontSize = 14.sp
 )
+
+fun TextStyle.standard(): TextStyle = copy(
+    fontSize = 16.sp
+)
+
+fun TextStyle.large(): TextStyle = copy(
+    fontSize = 20.sp
+)

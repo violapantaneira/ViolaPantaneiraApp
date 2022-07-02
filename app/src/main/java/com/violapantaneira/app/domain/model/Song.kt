@@ -9,5 +9,8 @@ data class Song(
     val photoUrl: Uri? = null,
     val tune: String = "",
     val rhythm: Rhythm = Rhythm(),
+    val intro: List<String> = emptyList(),
     val lyrics: List<Map<String, String>> = emptyList()
-)
+) {
+    var id: String = ""
+}
