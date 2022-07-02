@@ -15,13 +15,14 @@ import com.violapantaneira.app.util.UiEvent
 fun AdminNavigation(
     navController: NavHostController,
     onNavigate: (UiEvent.Navigate) -> Unit,
-    onReplace: (UiEvent.Replace) -> Unit
+    onReplace: (UiEvent.Replace) -> Unit,
+    showSnackBar: (UiEvent.ShowSnackbar) -> Unit
 ) {
     NavHost(
         navController = navController,
         startDestination = MainRoutes.HOME
     ) {
-        composable(MainRoutes.HOME) { HomeScreen(onNavigate) }
+        composable(MainRoutes.HOME) { HomeScreen(onNavigate, showSnackBar) }
         composable(MainRoutes.SEARCH) { SearchScreen(onNavigate) }
         composable(MainRoutes.ROLL) { RollScreen() }
         composable(MainRoutes.PROFILE) { ProfileScreen(onReplace) }

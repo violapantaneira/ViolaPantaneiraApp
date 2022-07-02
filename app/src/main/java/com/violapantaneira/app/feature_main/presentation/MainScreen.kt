@@ -1,14 +1,20 @@
 package com.violapantaneira.app.feature_main.presentation
 
-import android.util.Log
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
+import androidx.compose.material.SnackbarDuration
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
@@ -21,7 +27,9 @@ import com.violapantaneira.app.feature_main.presentation.components.BottomNavBar
 import com.violapantaneira.app.feature_main.presentation.util.BottomNavItem
 import com.violapantaneira.app.navigation.MainRoutes
 import com.violapantaneira.app.navigation.replace
+import com.violapantaneira.app.ui.util.DefaultSnackbar
 import com.violapantaneira.app.util.UiEvent
+import kotlinx.coroutines.launch
 
 @Composable
 fun MainScreen(
@@ -30,6 +38,8 @@ fun MainScreen(
     viewModel: MainViewModel = hiltViewModel()
 ) {
     val navController = rememberNavController()
+    val scaffoldState = rememberScaffoldState()
+    val scope = rememberCoroutineScope()
 
     val isAdmin by remember { viewModel.isAdmin }
 
@@ -74,6 +84,10 @@ fun MainScreen(
     )
 
     Scaffold(
+        scaffoldState = scaffoldState,
+        snackbarHost = {
+            scaffoldState.snackbarHostState
+        },
         bottomBar = {
             BottomNavBar(
                 items =
@@ -94,19 +108,46 @@ fun MainScreen(
             )
         }
     ) { padding ->
+
+        val context = LocalContext.current
+        val showSnackbar: (UiEvent.ShowSnackbar) -> Unit = { event ->
+            scope.launch {
+                scaffoldState.snackbarHostState.currentSnackbarData?.dismiss()
+                scaffoldState.snackbarHostState.showSnackbar(
+                    message = event.message.asString(context),
+                    actionLabel = event.action.asString(context),
+                    duration = SnackbarDuration.Short
+                )
+            }
+        }
+
         if (isAdmin)
             AdminNavigation(
                 navController,
                 onNavigate,
-                onReplace
+                onReplace,
+                showSnackbar
             )
         else
             UserNavigation(
                 navController,
                 onNavigate,
-                onReplace
+                onReplace,
+                showSnackbar
             )
 
-        Log.i("Padding", padding.toString())
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(padding)
+        ) {
+            DefaultSnackbar(
+                snackbarHostState = scaffoldState.snackbarHostState,
+                onDismiss = {
+                    scaffoldState.snackbarHostState.currentSnackbarData?.dismiss()
+                },
+                modifier = Modifier.align(Alignment.BottomCenter)
+            )
+        }
     }
 }

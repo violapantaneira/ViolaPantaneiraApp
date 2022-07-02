@@ -21,4 +21,10 @@
     <string name="tune">Afinação</string>
     <string name="rhythm">Ritmo</string>
     <string name="log_out">Sair</string>
+    <string name="rhythms">Ritmos</string>
+    <string name="chat">Chat</string>
+    <string name="metronome">Metrônomo</string>
+    <string name="tuner">Afinador</string>
+    <string name="soon">Em breve</string>
+    <string name="ok">Está bem</string>
 </resources>

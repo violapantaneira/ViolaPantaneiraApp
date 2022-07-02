@@ -23,4 +23,10 @@
     <string name="tune">Tune</string>
     <string name="rhythm">Rhythm</string>
     <string name="log_out">Logout</string>
+    <string name="rhythms">Rhythms</string>
+    <string name="chat">Chat</string>
+    <string name="metronome">Metronome</string>
+    <string name="tuner">Tuner</string>
+    <string name="soon">Soon</string>
+    <string name="ok">Ok</string>
 </resources>

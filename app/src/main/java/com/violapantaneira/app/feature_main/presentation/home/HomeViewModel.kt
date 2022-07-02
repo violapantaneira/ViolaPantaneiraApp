@@ -3,12 +3,14 @@ package com.violapantaneira.app.feature_main.presentation.home
 import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.violapantaneira.app.R
 import com.violapantaneira.app.domain.model.Song
 import com.violapantaneira.app.domain.repository.DatabaseRepository
 import com.violapantaneira.app.domain.repository.Rhythm
 import com.violapantaneira.app.feature_main.util.HomeEvent
 import com.violapantaneira.app.navigation.SongRoutes
 import com.violapantaneira.app.util.UiEvent
+import com.violapantaneira.app.util.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -33,9 +35,16 @@ class HomeViewModel @Inject constructor(
 
     fun onEvent(event: HomeEvent) =
         when (event) {
+            is HomeEvent.CardClicked -> {
+                sendUiEvent(
+                    UiEvent.ShowSnackbar(
+                        message = UiText.StringResource(R.string.soon),
+                        action = UiText.StringResource(R.string.ok)
+                    )
+                )
+            }
             is HomeEvent.SongClicked -> {
                 val song = event.song
-
                 sendUiEvent(
                     UiEvent.Navigate(
                         SongRoutes.argument(song.id)
