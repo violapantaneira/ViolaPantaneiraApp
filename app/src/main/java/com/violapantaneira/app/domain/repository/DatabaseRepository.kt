@@ -29,11 +29,6 @@ interface DatabaseRepository {
         callback: (List<Song>) -> Unit
     )
 
-    fun getSongsByRhythm(
-        rhythm: Rhythm,
-        callback: (List<Song>) -> Unit
-    )
-
     fun getSongs(
         query: String,
         callback: (List<Song>) -> Unit

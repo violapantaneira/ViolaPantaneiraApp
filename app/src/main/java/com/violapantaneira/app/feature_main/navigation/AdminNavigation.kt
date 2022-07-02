@@ -22,7 +22,7 @@ fun AdminNavigation(
         startDestination = MainRoutes.HOME
     ) {
         composable(MainRoutes.HOME) { HomeScreen(onNavigate) }
-        composable(MainRoutes.SEARCH) { SearchScreen() }
+        composable(MainRoutes.SEARCH) { SearchScreen(onNavigate) }
         composable(MainRoutes.ROLL) { RollScreen() }
         composable(MainRoutes.PROFILE) { ProfileScreen() }
     }

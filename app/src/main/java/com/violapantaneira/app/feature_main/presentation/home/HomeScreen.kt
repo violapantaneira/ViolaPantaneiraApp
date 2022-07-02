@@ -58,7 +58,6 @@ fun HomeScreen(
                     song = song,
                     onClick = {
                         viewModel.onEvent(HomeEvent.SongClicked(it))
-                        Log.i("SongId", it.toString())
                     }
                 )
 

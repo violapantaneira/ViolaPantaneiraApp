@@ -73,27 +73,21 @@ class DatabaseRepositoryImpl(
             }
     }
 
-    override fun getSongsByRhythm(rhythm: Rhythm, callback: (List<Song>) -> Unit) {
-        database.collection("songs")
-            .get()
-            .addOnSuccessListener { result ->
-                val songs = result
-                    .map { it.toObject(Song::class.java) }
-                    .filter { it.rhythm == rhythm }
-                callback(songs)
-            }
-    }
-
     override fun getSongs(query: String, callback: (List<Song>) -> Unit) {
         database.collection("songs")
             .get()
             .addOnSuccessListener { result ->
-                val songs = result.map { it.toObject(Song::class.java) }
+                val songs = result
+                    .map { document ->
+                        document.toObject(Song::class.java).also {
+                            it.id = document.id
+                        }
+                    }
                     .filter {
-                        it.name == query
-                                || it.author == query
-                                || it.rhythm.name == query
-                                || it.tune == query
+                        it.name.contains(query, true)
+                                || it.author.contains(query, true)
+                                || it.rhythm.name.contains(query, true)
+                                || it.tune.contains(query, true)
                     }
                 callback(songs)
             }
