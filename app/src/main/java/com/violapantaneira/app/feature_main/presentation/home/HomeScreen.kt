@@ -1,9 +1,11 @@
 package com.violapantaneira.app.feature_main.presentation.home
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -41,7 +43,12 @@ fun HomeScreen(
     val songs = remember { viewModel.songs }
 
     LazyColumn(
-        contentPadding = PaddingValues(24.dp)
+        contentPadding = PaddingValues(
+            start = 24.dp,
+            top = 24.dp,
+            end = 24.dp,
+            bottom = 110.dp
+        )
     ) {
         // Cards
         gridItems(

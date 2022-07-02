@@ -5,11 +5,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.violapantaneira.app.R
 import com.violapantaneira.app.domain.repository.AuthRepository
 import com.violapantaneira.app.feature_main.util.ProfileEvent
 import com.violapantaneira.app.feature_main.util.ProfileState
 import com.violapantaneira.app.navigation.AuthRoutes
 import com.violapantaneira.app.util.UiEvent
+import com.violapantaneira.app.util.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -35,14 +37,15 @@ class ProfileViewModel @Inject constructor(
     fun onEvent(event: ProfileEvent) {
         when (event) {
             is ProfileEvent.ToggleProfileEditingClicked -> {
-                if (state.editing)
-                    auth.updateName(state.name)
-                state = state.copy(editing = !state.editing)
+                sendUiEvent(
+                    UiEvent.ShowSnackbar(
+                        message = UiText.StringResource(R.string.soon),
+                        action = UiText.StringResource(R.string.ok)
+                    )
+                )
             }
-            is ProfileEvent.NameChanged -> {
-                state = state.copy(name = event.name)
-            }
-            is ProfileEvent.ChangeProfilePhotoClicked -> {}
+            is ProfileEvent.NameChanged -> Unit
+            is ProfileEvent.ChangeProfilePhotoClicked -> Unit
             is ProfileEvent.SignOutClicked -> {
                 auth.logOut().let { successful ->
                     if (successful)

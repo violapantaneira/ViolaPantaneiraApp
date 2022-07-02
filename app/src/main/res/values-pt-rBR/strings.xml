@@ -27,4 +27,5 @@
     <string name="tuner">Afinador</string>
     <string name="soon">Em breve</string>
     <string name="ok">Está bem</string>
+    <string name="edit_profile">Editar perfil</string>
 </resources>

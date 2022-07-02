@@ -91,7 +91,8 @@ fun SongScreen(
                             style = Typography.h3
                                 .color(Blue)
                                 .interactive(),
-                            modifier = Modifier.clickable { viewModel.onEvent(SongEvent.AuthorClicked) }
+                            modifier = Modifier
+                                .clickable { viewModel.onEvent(SongEvent.AuthorClicked) }
                         )
                     }
 

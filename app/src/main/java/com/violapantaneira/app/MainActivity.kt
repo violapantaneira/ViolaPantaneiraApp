@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
                 // Set the status bar color
                 val systemUiController = rememberSystemUiController()
                 SideEffect {
-                    systemUiController.setSystemBarsColor(Color.White)
+                    systemUiController.setSystemBarsColor(Color.White.copy(alpha = .6f))
                 }
 
                 val startRoute =
