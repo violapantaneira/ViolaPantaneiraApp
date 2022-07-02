@@ -10,12 +10,12 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.violapantaneira.app.ui.theme.Blue
 import com.violapantaneira.app.ui.theme.Red
 import com.violapantaneira.app.ui.theme.Typography
-import com.violapantaneira.app.ui.theme.White
 import com.violapantaneira.app.ui.util.*
 
 @Composable
@@ -48,7 +48,7 @@ fun FormButton(
             Text(
                 text = text,
                 style = Typography.body1
-                    .color(White)
+                    .color(Color.White)
                     .bold()
                     .interactive(),
                 textAlign = TextAlign.Center,
