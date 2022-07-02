@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.violapantaneira.app.R
@@ -48,6 +49,7 @@ fun SearchScreen(
             onValueChange = {
                 viewModel.onEvent(SearchEvent.SearchChanged(it))
             },
+            imeAction = ImeAction.Done,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp)

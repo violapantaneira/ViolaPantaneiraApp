@@ -22,6 +22,6 @@ fun UserNavigation(
     ) {
         composable(MainRoutes.HOME) { HomeScreen(onNavigate) }
         composable(MainRoutes.SEARCH) { SearchScreen(onNavigate) }
-        composable(MainRoutes.PROFILE) { ProfileScreen() }
+        composable(MainRoutes.PROFILE) { ProfileScreen(onReplace) }
     }
 }

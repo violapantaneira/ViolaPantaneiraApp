@@ -6,4 +6,6 @@ interface AuthRepository {
     fun getUser(): User?
 
     fun updateName(name: String)
+
+    fun logOut(): Boolean
 }
